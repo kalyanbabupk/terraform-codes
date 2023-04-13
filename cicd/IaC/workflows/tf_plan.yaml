@@ -1,0 +1,38 @@
+steps:
+  # Move to DeploymentScripts folder and run terraform init inside that folder
+  # DeploymentScripts contain terraform scripts to create resources
+  - name: hashicorp/terraform
+    entrypoint: sh
+    args:
+      - "-c"
+      - |
+      
+        cd DeploymentScripts/
+        
+        terraform init -reconfigure
+
+  # Move all the input .auto.tfvars files from InputVariables folder to DeploymentScripts folder
+  # This step will make sure that all input files in InputVariables are loaded during terraform commands
+  # InputVariables contain input values for terraform scripts that are present in DeploymentScripts
+  # (This change is applicable to only cloud build environment and copy of repo, the original remote repo is not effected)
+  - name: hashicorp/terraform
+    entrypoint: sh
+    args:
+      - "-c"
+      - |
+
+        mv InputVariables/*.* DeploymentScripts/
+        ls DeploymentScripts
+        
+
+  # Move to DeploymentScripts folder and run terraform plan inside that folder
+  # DeploymentScripts will contain terraform main scripts and their input files .auto.tfvars 
+  - name: hashicorp/terraform
+    entrypoint: sh
+    args:
+      - "-c"
+      - |
+
+        cd DeploymentScripts/
+
+        terraform plan
