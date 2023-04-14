@@ -23,25 +23,25 @@ variable "main" {
 # }
 
 #########SERVICE ACCOUNT VARIABLES ##########
-# variable "updater" {
-#   type = map(object({
-#     # name         = string
-#     # location     = string
-#     account_id   = string
-#     display_name = string
-#     #schedule  = string
-#     #region    = string
-#     #time_zone = string
-#   }))
-# }
+variable "updater" {
+  type = map(object({
+    # name         = string
+    # location     = string
+    account_id   = string
+    display_name = string
+    #schedule  = string
+    #region    = string
+    #time_zone = string
+  }))
+}
 
 ############# SA ROLES VARIABLES ########################
-# variable "roles" {
-#   type = map(object({
-#     role = string
-#     #member = string
-#   }))
-# }
+variable "roles" {
+  type = map(object({
+    role = string
+    #member = string
+  }))
+}
 
 ###########  VM INSTANCE VARIABLES  ##########################
 # variable "instance" {

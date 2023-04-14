@@ -19,13 +19,34 @@ main = {
 #   }
 # }
 ########### SERVICE ACCOUNT INPUTS #############
-# updater = {
-#   sa = {
-#     account_id   = "sa-from-tf-using-cicd-kb"
-#     display_name = "sa-from-cicd"
-#   }
-# }
+updater = {
+  sa = {
+    account_id   = "sa-from-tf-using-github-kb"
+    display_name = "sa-from-cicd"
+  }
+}
+########## SERVICE ACCOUNT ROLES ################
+roles = {
+  sa_role = {
+    role = "roles/run.admin"
 
+    # member = "serviceAccount:sa-from-tf-8096@cloud-exponence-295312.iam.gserviceaccount.com"
+
+  }
+  sa_role1 = {
+    role = "roles/cloudscheduler.admin"
+
+    #member = "serviceAccount:sa-from-tf-8096@cloud-exponence-295312.iam.gserviceaccount.com"
+
+  }
+  sa_role2 = {
+    role = "roles/editor"
+
+    #member = "serviceAccount:sa-from-tf-8096@cloud-exponence-295312.iam.gserviceaccount.com"
+
+  }
+
+}
 ############ VM INSTANCE INPUTS ##################
 # instance = {
 #   vm = {
