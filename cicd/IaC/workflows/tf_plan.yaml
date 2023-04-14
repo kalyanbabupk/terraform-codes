@@ -7,7 +7,7 @@ steps:
       - "-c"
       - |
       
-        cd DeploymentScripts/
+        cd cicd/DeploymentScripts/
         
         terraform init -reconfigure
 
@@ -21,8 +21,8 @@ steps:
       - "-c"
       - |
 
-        mv InputVariables/*.* DeploymentScripts/
-        ls DeploymentScripts
+        mv cicd/InputVariables/*.* cicd/DeploymentScripts/
+        ls cicd/DeploymentScripts
         
 
   # Move to DeploymentScripts folder and run terraform plan inside that folder
@@ -33,6 +33,6 @@ steps:
       - "-c"
       - |
 
-        cd DeploymentScripts/
+        cd cicd/DeploymentScripts/
 
         terraform plan
