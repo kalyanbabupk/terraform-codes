@@ -23,7 +23,7 @@ steps:
       - |
 
         mv cicd/InputVariables/*.* cicd/DeploymentScripts/
-        ls cd/DeploymentScripts
+        ls cicd/DeploymentScripts
 
 
   # Move to DeploymentScripts folder and run terraform plan inside that folder
